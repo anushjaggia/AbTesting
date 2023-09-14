@@ -1,0 +1,248 @@
+Test Case Template for Project,,,,,,,,,,,,
+Project Name,vwo,,,,,,,,,,,
+Module Name(s),"Login, Sign Up",,,,,,,,,,,
+Created by,Anush J.,,,,,,,,,,,
+Created Date,9/10/2023,,,,,,,,,,,
+Peer Review  by,GitHub Community,,,,,,,,,,,
+Peer Reviewed Date,10/1/2023,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+Test Scenario,Scenario Id,Test Case ID,Test Case Title,,Pre Condition,Steps to Execute,,Expected Result,Actual Result,Status,Misc (Comments),Priority
+Verify Login functionality ,TS1,TC1,Verify user login with correct Email Address and Password,,Login - VWO is pre-loaded,"1.Enter Email address:""abc@gmail.com""
+2.Enter Password:""Wingify@123""
+3. Click on 'Sign in' button",,Login should be working with valid credentials and user is directed to dashboard page,Login is working with valid credentials and user is directed to dashboard page,Pass,,
+,,TC2,Verify  user login with Correct Email address and Incorrect Password,,Login - VWO is pre-loaded,"1. Enter Email address ""kjdsk@gmail.com""
+2.  Enter Password: Wingify@123""
+3. Click on 'Sign in' button",,"User should fail to login with ""Your email, password, IP address or location did not match"" prompted","User fails to login with ""Your email, password, IP address or location did not match"" prompted",Pass,,
+,,TC3,Verify user login with correct Email Address and  incorrect Password,,Login - VWO is pre-loaded,"1. Enter Email address ""abc@gmail.com""
+2.  Enter Password: 1""234578""
+3. Click on 'Sign in' button",,"User should fail to login with ""Your email, password, IP address or location did not match"" prompted","User fails to login with ""Your email, password, IP address or location did not match"" prompted",Pass,,
+,,TC4,Verify user login with Empty Email Address and  Correct Pssword,,Login - VWO is pre-loaded,"1. Keep Email Address Blank 
+2. Enter Password: Wingify@123""
+3. Click on 'Sign in' button",,"User should fail to login with ""Your email, password, IP address or location did not match"" prompted","User fails to login with ""Your email, password, IP address or location did not match"" prompted",Pass,,p1
+,,TC5,Verify user login with Correct Email Address and  Empty Password,,Login - VWO is pre-loaded,"1.Enter Email Address: ""abc@gmail.com
+2. Keep Password Blank
+3. Click on 'Sign in' button",,"User should fail to login with ""Your email, password, IP address or location did not match"" prompted","User fails to login with ""Your email, password, IP address or location did not match"" prompted",Pass,,
+,,TC6,Verify user login keeping both Email Address and Pssword fields empty,,Login - VWO is pre-loaded,"Keep both Email Address and Password fields blank
+2. Click on 'Sign in' button",,"User should fail to login with ""Your email, password, IP address or location did not match"" prompted","User fails to login with ""Your email, password, IP address or location did not match"" prompted",Pass,,
+,,TC7,Verify case-sensitivity while entering credentials,,Login - VWO is pre-loaded,"1.Enter Email address:""ABC@GMAIL.COM""
+2.Enter Password:""Wingify@123
+3. Click on 'Sign in' button",,"User should fail to login with ""Your email, password, IP address or location did not match"" prompted",Login is working with valid credentials and user is directed to dashboard page,fail,,
+Verify Remember Me functionality,TS2,TC8,"Verify user login with correct Email Address and Password checking ""Remember me"" Check-box",,"1. Login - VWO is pre-loaded
+2. The ""Remember Me"" checkbox is present on the login page.","1.Enter Email address:""abc@gmail.com""
+2.Enter Password:""Wingify@123""
+3. Click on 'Sign in' button
+4 Close the window
+5.  Reopen the window in the browser
+6. Navigate to ""https://app.vwo.com""
+",,dashboard page should be loaded directly,login page gets loaded,fail,,P2
+Verify Password Reset functionality,TS3,TC9,Verify user is directed to password reset page,,"1. https://app.vwo.com/#/login is pre-loaded
+",Click on 'Forgot Password' link,,User should be directed to forgot password URL: 'https://app.vwo.com/#/forgot-password',Usergets directed to forgot password URL: 'https://app.vwo.com/#/forgot-password',pass,,
+,,TC10,Verify password reset is not allowed for invalid email address,,https://app.vwo.com/#/forgot-password is pre-loaded,"1. Enter any email address apart from the registered ones
+2. Click on 'Reset Password' button",,User should be displayed an error message and no password reset link is sent to given email address,"no error message prompted
+and no email reciebed",fail,,
+,,TC11,Verify Password reset with valid email address,,https://app.vwo.com/#/forgot-password is pre-loaded,"1. Enter valid email address 
+2. Click on 'Reset Password' button
+3, Check Password reset link sent in mail
+4. Create a new password with the given guidelines",,"1. Success message should be diplayed after input valid email address
+2.Password reset link  should be recieved 
+3. User shoould be redirected to password reset page
+4. After entering password according to given guidelines password should reset
+5. User should be redirected to login page","1. Success message is diplayed after input valid email address
+2.Password reset link  is recieved 
+3. User is redirected to password reset page
+4. After entering password according to given guidelines password has been reset
+5. User is redirected to login page",pass,,
+,,TC12,Verify old link expires when new password reset link is requested,,https://app.vwo.com/#/forgot-password is pre-loaded,"1. Enter valid email address 
+2. Click on 'Reset Password' button
+3. Click on 'Reset Password' button
+4.Check Password reset link sent in mail
+5. Select email recieved first
+4. Create a new password with the given guidelines",,"1. Success message should be diplayed after input valid email address
+2. Success message should be diplayed after input valid email address
+2.Password reset links should be recieved 
+3. User should be redirected to password reset page
+4. After entering password according to given guidelines password 'password reset link expired' message should be displayed
+5. User should be redirected to password reset page","1. Success message is diplayed after input valid email address
+2.Password reset link  is recieved 
+3. User is redirected to password reset page
+4. After entering password according to given guidelines password reset link expired' message is displayed
+5. User is redirected to password reset page",pass,,
+,,TC13,Verify user cannot reset password when entered less than 8 characters,,https://app.vwo.com/#/forgot-password is pre-loaded,"1. Enter valid email address 
+2. Click on 'Reset Password' button
+3. Check Password reset link sent in mail
+4. Create a new password with less than 8 characters
+",,"1. Success message should be recieved with reset link email sent.
+2.User should be directed to password reset page
+3. Error message should be prompted as password guildlines not met","1. Success message is recieved with reset link email sent.
+2.User is directed to password reset page
+3. Error message is prompted as password guildlines not met",pass,,
+,,TC14,Verify user cannot reset password when entered only alphabets,,https://app.vwo.com/#/forgot-password is pre-loaded,"1. Enter valid email address 
+2. Click on 'Reset Password' button
+3. Check Password reset link sent in mail
+4. Create a new password using only alphabets
+",,"1. Success message should be recieved with reset link email sent.
+2.User should be directed to password reset page
+3. Error message should be prompted as password guildlines not met","1. Success message is recieved with reset link email sent.
+2.User is directed to password reset page
+3. Error message is prompted as password guildlines not met",,,p2
+,,TC15,Verify user cannot reset password when entered only numerics,,https://app.vwo.com/#/forgot-password is pre-loaded,"1. Enter valid email address 
+2. Click on 'Reset Password' button
+3. Check Password reset link sent in mail
+4. Create a new password using only numerics",,"1. Success message should be recieved with reset link email sent.
+2.User should be directed to password reset page
+3. Error message should be prompted as password guildlines not met","1. Success message is recieved with reset link email sent.
+2.User is directed to password reset page
+3. Error message is prompted as password guildlines not met",pass,,
+,,TC16,Verify user cannot reset password when entered only  special characters,,https://app.vwo.com/#/forgot-password is pre-loaded,"1. Enter valid email address 
+2. Click on 'Reset Password' button
+3. Check Password reset link sent in mail
+4. Create a new password using only special characters",,"1. Success message should be recieved with reset link email sent.
+2.User should be directed to password reset page
+3. Error message should be prompted as password guildlines not met","1. Success message is recieved with reset link email sent.
+2.User is directed to password reset page
+3. Error message is prompted as password guildlines not met",pass,,
+,,TC17,Verify user cannot reset password leaving password field empty,,https://app.vwo.com/#/forgot-password is pre-loaded,"1. Enter valid email address 
+2. Click on 'Reset Password' button
+3. Check Password reset link sent in mail
+4. Create a new password keeping password field blank",,"1. Success message should be recieved with reset link email sent.
+2.User should be directed to password reset page
+3. Error message should be prompted as password guildlines not met","1. Success message is recieved with reset link email sent.
+2.User is directed to password reset page
+3. Error message is prompted as password guildlines not met",pass,,
+,,TC18,Verify user cannot set new password same as old password,,https://app.vwo.com/#/forgot-password is pre-loaded,"1. Enter valid email address 
+2. Click on 'Reset Password' button
+3. Check Password reset link sent in mail
+4. Create a new password keeping password field blank",,"1. Success message should be recieved with reset link email sent.
+2.User should be directed to password reset page
+3. Error message should be prompted as password guildlines not met","1. Success message is recieved with reset link email sent.
+2.User is directed to password reset page
+3. Error message is prompted as password guildlines not met",pass,,
+,,TC19,Verify user logs-in with new password and old password sessions are expired,,https://app.vwo.com/#/dashboard is pre-loaded,"1.Login with valid credentials
+2.Go to reset password page from the dashbaord
+3.After getting redirected to login page enter old password
+4.Enter newly set password",,"1. Dashboard page should be displayed
+2.New password should be added to account after reset
+3. User should be logged-out
+4.When user tries to enter old password error message should be displayed
+5. When user enters newly set password dashboard page should display","1. Dashboard page is displayed
+2.New password is added to account after reset
+3. User is logged-out
+4.When user tries to enter old password error message is displayed
+5. When user enters newly set password dashboard page is displayed",pass,,
+Verify Captcha Verification Functionality,TS4,TC20,Verify captcha implementation,,https://app.vwo.com is pre-loaded,"1.Enter Valid Email address
+2. Enter Invalid password
+3.click on Sign-in ",,User should see a captcha challenge with error message prompted,User sees a captcha challenge with error message prompted,pass,,
+,,TC21,Login verification with captcha challenge,,"1. https://app.vwo.com is pre-loaded
+2. Captcha challenge is present","1. Enter Valid Email address and Password
+2. Check 'I'm not a Robot' Captcha.
+3. Solve the captcha challenge if any
+4. Click on Sign in button",,User should be able to sign in and redirected to dashboard page,User is able to sign in and redirected to dashboard page,pass,,
+,,TC22,Verify failure handling when user inputs incorrect values to captcha,,"1. https://app.vwo.com is pre-loaded
+2. Captcha challenge is present","1. Enter Valid Email address and Password
+2. Enter incorrect captcha values.
+3.Click on Sign in button",,User should not be able to sign in with error message prompted,User is unable to sign in with error message prompted,pass,,p1
+,,TC23,Verify failure handing when user doesn't provide any input to captcha,,"1. https://app.vwo.com is pre-loaded
+2. Captcha challenge is present","1. Enter Valid Email address and Password
+2. Do not attempt captcha challenge
+3.Click on Sign in button",,User should not be able to sign in with error message prompted,User is unable to sign in with error message prompted,pass,,
+,,TC24,Verify captcha reset After Successful Login,,"1. https://app.vwo.com is pre-loaded
+2. Captcha challenge is present","1. Enter Valid Email address and Password
+2. Check 'I'm not a Robot' Captcha.
+3. Solve the captcha challenge if any
+4. Click on Sign in button
+5. Sign-out from the dashboard page",,"1.User should be able to sign in and redirected to dashboard page
+2. no captcha should be displayed after signing out","1.User is able to sign in and redirected to dashboard page
+2. no captcha is displayed after signing out",pass,,
+Verify Sign-up Functionality,TS5,TC25,Verify user can navigate to Sign-up page ,,"1. https://app.vwo.com is pre-loaded
+2.'Start a free trial' link is present",Click on 'Start a free trial' link,,User should be redirected to Sign-up page,User is redirected to Sign-up page,pass,,
+,,TC26,Verify user sign-up following the guidelines,,https://vwo.com/free-trial/ is pre-loaded,"1. Enter an unregistered email address
+2.Enter First Name
+3.Enter Last name
+4. Enter an unregistered phone number
+5.Create a password follwing given guidelines
+6.Click on 'Create Account' button",,"1. User should get a success prompt with account verification email sent to their email address.
+2. User should be redirected to dashboard page","1. User gets a success prompt with account verification email sent to their email address.
+2. User is redirected to dashboard page",pass,,
+,,TC27,Verify existing user sign-up failure management at sign-up page 1,,https://vwo.com/free-trial/ is pre-loaded,"1. Enter a registered email address
+2.Click on 'Create free trial account' button",,User should be prompted  with an error message 'An account with this email already exists',User is prompted  with an error message 'An account with this email already exists',pass,,
+,,TC28,Verify existing user sign-up failure management at sign-up page 2,,https://vwo.com/free-trial/ is pre-loaded,"1. Enter an unregistered email address
+2.Click on 'Create free trial account' button
+3. Enter First Name
+4. Enter Last Name
+5. Enter phone number linked to registered email address
+6. Create a password following the given guifelines
+7. Click on 'Create Account' button",,User should be prompted  with an error message 'An account with this phone number already exists',"1. User gets a success prompt with account verification email sent to their email address.
+2. User is redirected to dashboard page",fail,,
+,,TC29,Verify empty field failure management at sign-up page,,https://vwo.com/free-trial/ is pre-loaded,"1. Enter an unregistered email address
+2.Click on 'Create free trial account' button
+3. Keep either first name or last name or both the fields empty
+4. Enter an unregistered  phone number 
+5.Create a password following the given guidelines
+6. Click on 'Create Account' button",,User should be prompted  with an error message 'A value for this field is required',User is prompted  with an error message 'A value for this field is required',pass,,p0
+,,TC30,Verify user can only signup after meeting password guidelines,,https://vwo.com/free-trial/ is pre-loaded,"1. Enter an unregistered email address
+2.Click on 'Create free trial account' button
+3. Enter first name and last name
+4.  Enter an unregistered  phone number 
+5. Create password with less than 8 characters
+6. Click on 'Create Account' button
+7. Create Password with only Alphabets
+8.. Click on 'Create Account' button
+9. Create password with only numerics
+10. . Click on 'Create Account' button
+11. Create password with only special Characters
+12. . Click on 'Create Account' button
+13. Keep password field empty
+14.. Click on 'Create Account' button",,User should be prompted  with an error message 'A valid pasword',User is prompted  with an error message 'A valid pasword',pass,,
+,,TC31,Verify user can only signup after meeting password guidelines Sign up page 3,,https://app.vwo.com/#/setup/account-setup is pre-loaded,"1.Keep 'Enter URL' field empty
+2. Click on 'Next' button
+3. Keep 'monthly traffic' field empty
+4.Click on 'Next' button
+5. keep 'what's your industry' field empty
+6.click on 'Next' button
+",,User should be prompted  with an error message 'A value for this field is required',User is prompted  with an error message 'A value for this field is required',pass,,
+,,TC32,Verify user cannot procede without selecting  any product Sign up page 4,,https://app.vwo.com/#/setup/product-selection is pre-loaded,"1. Do not check any of the products given
+2. Click on Next button",,User should be prompted with an error,Next button is disabled till a product gets selected,pass,,
+,,TC33,,,https://app.vwo.com/#/setup/product-selection is pre-loaded,"1. Select multiple products from product selection page
+2. Click on Next button",,Welcome message should be prompted and user gets redirected to track goals page,Welcome message is prompted and user gets redirected to track goals page,pass,,
+Verify Security of Login Module,TS6,TC34,Verifying Protection Against SQL Injection Attacks	,,Login - VWO is pre-loaded,"1. Enter ' ' OR '1'='1 ' into email address field
+2. Click on Sign in button
+",,"1. User should not be able to login with an error message prompted
+2. there should not be any prompt(s) with sensitive information about the database",User is prompted with an error message,pass,"The input ' OR '1'='1 is a common SQL injection payload that attackers use to exploit vulnerabilities in an application's SQL queries. When this input is entered as a username in a login form, it is intended to manipulate the SQL query in a way that makes it return all records, effectively bypassing login authentication.",p0
+,,TC35,Verify that the login page does not reflect or execute any injected scripts when invalid login credentials are provided.,,Login - VWO is pre-loaded,"1. Enter the following payload into the email address or password field: ' <script>alert(""XSS Attack"");</script> ' 
+2. Click the ""Sign in"" button.",,"1. User should be displayed script tag as plain text
+2. User should get an error prompt when they click sign in button
+3. No alert message shouldn't be planted","1.  Script tag is diplayed as plain texts
+2. Error message prompted when clicked on login
+3. No alert message prompted",pass,,
+Verify Cross Browser Compatibility,TS7,TC36,Verify time taken by multiple browsers to load the login-page,,Test Data: app.vwo.com,"1. Open Safari, Google Chrome, Firefox, Edge browser one by one.
+2. navigate to app.vwo.com
+3. Record the time taken to load the login-page for each of the given browsers",,There should not be significant page load time difference after opening login page over multiple browsers,There is no significant page load time difference after opening login page over multiple browsers,pass,,
+,,TC37,Verify that the core functionalities function among multiple browsers,,Test Data: app.vwo.com,"1. Access the login-page using Safari, Chrome, Firefox, Edge
+2. Perform login, and navigate between multiple pages
+",,"There should not be any unexpedcted errors or behaviors while navigatiing , and performing actions over multiple browsers","There is no unexpected errors or behaviors while navigatiing , and performing actions over multiple browsers",pass,,p1
+,,TC38,Verify cross browser Rendering ,,Test Data: app.vwo.com,"1. Access the login-page using Safari, Chrome, Firefox, Edge
+2. Perform login, and navigate between multiple pages
+3. Compare the rendering of web pages, including fonts, images, and layout.",,UI should be consistent across different browsers,No visual appearance inconsistencies found across different browsers,pass,,
+Verify responsiveness and adaptability to different screen sizes and devices.,TS8,TC39,Verify time taken by differnet devices to load the login-page,,Test Data: app.vwo.com,"1. Access the login-page on smartphone, tablet, laptop
+3. Record the time taken to load the login-page",,There should not be significant page load time difference after opening login page on multiple devices,There is no significant page load time difference after opening login page on multiple devices,pass,,
+,,TC40,Verify that the core functionalities function among different devices,,Test Data: app.vwo.com,"1. Access the login-page on multiple devices
+2. Perform login, and navigate between multiple pages
+",,"There should not be any unexpedcted errors or behaviors while navigatiing , and performing actions on multiple devices","There is no unexpected errors or behaviors while navigatiing , and performing actions on multiple devices",pass,,p1
+,,TC41,"Verify that the login-in page is responsive and adapts to various screen sizes and devices, ensuring that the layout, content adjust appropriately.",,Test Data: app.vwo.com,"1. Access the login-page on Smartphone, Tablet, laptop
+2. Perform login, and navigate between multiple pages
+3. Check that the layout, content, and functionality adjust appropriately to the screen size.
+4. . Check that all elements, including the logo, input fields, buttons, and text, are well-proportioned and readable.",,"1. The Layout, Content and all the functionalities should be adjusted according the size of the device
+2. No horizontal Scrolling should berequired forsmall devices.","1. The Layout, Content and all the functionalities has been adjusted according the size of the device
+2. No horizontal Scrolling required forsmall devices.",pass,,
+Verify performace of login-page uder different load conditons,TS9,TC42,Verify the performace of login page when one user is accessing the same,,Test Data: app.vwo.com,"1. Navigate to login page
+2. Perform login request
+3. Record the time taken to login",,,,,,
+,,TC43,Verify stress testing performance of login page,,Test Data: app.vwo.com,"1. Significantly increase the concurrent user login requests to stress the login page. 
+2. Continuously monitor response times and resource consumption. 
+3. Observe how the application behaves as it approaches the breaking point.",,,,,,
+,,TC44,Verify spike testing performance of login page,,Test Data: app.vwo.com,"1. Simulate abrupt and significant increases in user login requests. 
+2.Measure response times during and after the spikes.
+3. Assess the system's ability to handle rapid traffic fluctuations.",,,,,,p3
+,,TC45,Verify of login page under sustained load for extended time,,Test Data: app.vwo.com,"1. Run a prolonged load test with a constant number of concurrent user login requests
+2.Continuously monitor response times and resource utilization. ",,,,,,
