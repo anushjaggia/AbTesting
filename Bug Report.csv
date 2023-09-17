@@ -1,0 +1,36 @@
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,Bug Description,,,,,,,,,
+Bug Title ,Test Case ID,Test Case Title,,Pre Condition,Steps to Reproduce,,Expected Result,Actual Result,Defect ID,Environment,Time Stamp,Screenshot,Priority
+When Characters were Entered in Uppercase then user gets logged in,TC7,Verify case-sensitivity while entering credentials,,Login - VWO is pre-loaded,"1. Navigate to app.vwo.com
+2.Enter Email address:""ABC@GMAIL.COM""
+3.Enter Password:""Wingify@123
+4. Click on 'Sign in' button",,"User should fail to login with ""Your email, password, IP address or location did not match"" prompted",Login is working with valid credentials and user is directed to dashboard page,Df01,qa.app.vwo.com,"14:20, 11th September, 2023",,P3
+When the user checks 'remember me' then also prompted to re=login,TC8,"Verify user login with correct Email Address and Password checking ""Remember me"" Check-box",,"1. Login - VWO is pre-loaded
+2. The ""Remember Me"" checkbox is present on the login page.","1. Navigate to app.vwo.com
+2. Enter Email address:""abc@gmail.com""
+3.Enter Password:""Wingify@123""
+4. Click on 'Sign in' button
+5 Close the window
+6.  Reopen the window in the browser
+7. Navigate to ""https://app.vwo.com""
+",,dashboard page should be loaded directly,login page gets loaded,Df02,qa.app.vwo.com,"18:46, 11th September, 2024",,P2
+"When attempted to reset password with unregistered email, success message prompted",TC10,Verify password reset is not allowed for invalid email address,,https://app.vwo.com/#/forgot-password is pre-loaded,"1. Navigate to https://app.vwo.com/#/forgot-password
+ 2. Enter any email address apart from the registered ones
+3. Click on 'Reset Password' button",,User should be displayed an error message and no password reset link is sent to given email address,"no error message prompted
+with sucess mesage prompted",Df03,qa.app.vwo.com,"17:46, 14th September, 2025",,P3
+"When attempted to sign-up with existing  phone number credentials, user gets a success prompt",TC28,Verify existing user sign-up failure management at sign-up page 2,,https://vwo.com/free-trial/ is pre-loaded,"1. Navigate to https://vwo.com/free-trial
+2. Enter an unregistered email address
+3.Click on 'Create free trial account' button
+4. Enter First Name
+5. Enter Last Name
+6. Enter phone number linked to registered email address
+7. Create a password following the given guifelines
+8. Click on 'Create Account' button",,User should be prompted  with an error message 'An account with this phone number already exists',"1. User gets a success prompt with account verification email sent to their email address.
+2. User is redirected to dashboard page",Df04,qa.app.vwo.com,"10:10, 17th September, 2026",,P1
